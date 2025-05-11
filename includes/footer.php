@@ -13,7 +13,7 @@
             <div class="col-md-4 text-center mb-2 mb-md-0">
                 <small>
                     <a href="#" class="text-muted text-decoration-none me-3">
-                        <i class="fas fa-phone-alt fa-sm"></i> (11) 1234-5678
+                        <i class="fas fa-phone-alt fa-sm"></i> (92) 3324-1687
                     </a>
                     <a href="#" class="text-muted text-decoration-none">
                         <i class="fas fa-envelope fa-sm"></i> contato@clinica.com

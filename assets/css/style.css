@@ -1,0 +1,128 @@
+
+/* Solução nuclear para remover qualquer espaço */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+
+
+/* Remove espaçamento extra do container */
+.container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Ajuste para o conteúdo abaixo da navbar */
+.main-content {
+    padding-top: 0; /* Remove o padding-top anterior */
+}
+
+/* Estilos para tabelas */
+.table {
+    margin-top: 20px;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+/* Estilos para mensagens de alerta */
+.alert {
+    margin-top: 20px;
+}
+
+/* Estilos para formulários */
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.navbar {
+    background-color: #2a9d8f;
+}
+
+
+
+
+
+/* Estilos para o footer compacto */
+.footer {
+    font-size: 0.85rem;
+    background-color: #f8f9fa !important;
+}
+
+.footer a {
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #2a9d8f !important;
+    text-decoration: none;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+
+
+/* Navbar colorida */
+.navbar-custom {
+    background-color: #2a9d8f;
+}
+
+/* Footer colorido */
+.footer-custom {
+    background-color: #21867a;
+    color: white;
+}
+
+/* Links do footer */
+.footer-custom a {
+    color: #e9ecef;
+}
+
+.footer-custom a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.navbar-custom {
+    background: linear-gradient(135deg, #2a9d8f, #21867a);
+}
+
+.footer-custom {
+    background-color: #21867a;
+}
+
+.navbar-custom {
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+}
+
+.footer-custom {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}

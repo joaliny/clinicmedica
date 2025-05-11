@@ -1,14 +1,17 @@
 <?php
-require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = sanitize($_POST['nome']);
-    $cpf = sanitize($_POST['cpf']);
-    $email = sanitize($_POST['email']);
-    $telefone = sanitize($_POST['telefone']);
-    $data_nascimento = sanitize($_POST['data_nascimento']);
-    $endereco = sanitize($_POST['endereco']);
+    if (cadastrar_paciente($pdo, $_POST)) {
+        $_SESSION['mensagem'] = 'Paciente cadastrado com sucesso!';
+        $_SESSION['tipo_mensagem'] = 'success';
+        redirect('/pacientes/listar.php');
+    } else {
+        $erro = "Erro ao cadastrar paciente. Por favor, tente novamente.";
+    }
+}
+
 
     try {
         $stmt = $pdo->prepare("INSERT INTO pacientes (nome, cpf, email, telefone, data_nascimento, endereco) 
@@ -23,5 +26,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     redirect(BASE_URL . '/pacientes/listar.php');
-}
+
 ?>

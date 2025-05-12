@@ -6,16 +6,25 @@ if (!isset($pdo)) {
     die('<div class="alert alert-danger">Erro: Conexão com o banco de dados não estabelecida</div>');
 }
 
+
 // Mensagens do sistema
-if (isset($_SESSION['mensagem'])) {
-    echo '<div class="alert alert-' . $_SESSION['tipo_mensagem'] . ' alert-dismissible fade show" role="alert">
-            <i class="fas fa-' . ($_SESSION['tipo_mensagem'] === 'success' ? 'check-circle' : 'exclamation-triangle') . ' me-2"></i>
-            ' . $_SESSION['mensagem'] . '
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>';
+if (isset($_SESSION['mensagem'])): ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                icon: '<?= $_SESSION['tipo_mensagem'] ?>',
+                title: '<?= $_SESSION['tipo_mensagem'] === 'success' ? 'Sucesso!' : 'Erro!' ?>',
+                text: '<?= $_SESSION['mensagem'] ?>',
+                confirmButtonColor: '#21867a'
+            });
+        });
+    </script>
+    <?php
     unset($_SESSION['mensagem']);
     unset($_SESSION['tipo_mensagem']);
-}
+endif;
+
+
 
 // Consulta pacientes
 try {
@@ -210,12 +219,20 @@ try {
                                        data-bs-toggle="tooltip" title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="<?= BASE_URL ?>/pacientes/excluir.php?id=<?= $paciente['id'] ?>" 
+                                    <!-- <a href="<?= BASE_URL ?>/pacientes/excluir.php?id=<?= $paciente['id'] ?>" 
                                        class="btn btn-sm btn-outline-danger"
                                        onclick="return confirm('Tem certeza que deseja excluir este paciente?')"
                                        data-bs-toggle="tooltip" title="Excluir">
                                         <i class="fas fa-trash-alt"></i>
-                                    </a>
+                                    </a> -->
+                                    <a href="#" 
+   class="btn btn-sm btn-outline-danger btn-excluir-paciente"
+   data-id="<?= $paciente['id'] ?>"
+   data-nome="<?= htmlspecialchars($paciente['nome']) ?>"
+   data-bs-toggle="tooltip" title="Excluir">
+    <i class="fas fa-trash-alt"></i>
+</a>
+
                                 </div>
                             </td>
                         </tr>
@@ -235,5 +252,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.btn-excluir-paciente').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const pacienteId = this.getAttribute('data-id');
+            const nome = this.getAttribute('data-nome');
+
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: `Deseja excluir o paciente "${nome}"?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sim, excluir!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `<?= BASE_URL ?>/pacientes/excluir.php?id=${pacienteId}`;
+                }
+            });
+        });
+    });
+});
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

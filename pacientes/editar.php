@@ -1,6 +1,6 @@
 <?php
 // pacientes/editar.php
-
+//comentario teste
 // 1. Inclui os arquivos na ordem correta
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/db.php'; // Adicionado

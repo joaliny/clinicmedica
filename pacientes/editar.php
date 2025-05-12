@@ -84,8 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Seus estilos aqui -->
 </head>
 <body>
-    <div class="container py-5">
-        <h2>Editar Paciente</h2>
+    
 
        <?php if (!empty($erro)): ?>
     <div class="alert alert-danger">
@@ -100,7 +99,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 <?php endif; ?>
 
-<form method="POST">
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm" style="border: none; border-radius: 10px;">
+                <div class="card-header text-white" style="background: linear-gradient(135deg, #2a9d8f, #21867a); border-radius: 10px 10px 0 0;">
+                    <h5 class="mb-0"><i class="fas fa-user-edit me-2"></i> Editar Paciente</h5>
+                </div>
+                <form method="POST">
+                    <div class="card-body" style="padding: 25px;">
+                        <?php if (!empty($erro)): ?>
+                            <div class="alert alert-danger"><?= htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') ?></div>
+                        <?php endif; ?>
+
+                        <div class="mb-3">
+                            <label for="nome" class="form-label fw-medium">Nome Completo</label>
+                            <input type="text" class="form-control" id="nome" name="nome" value="<?= htmlspecialchars($paciente['nome']) ?>" required style="border-radius: 8px; padding: 10px; border: 1px solid #e0e0e0;">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cpf" class="form-label fw-medium">CPF</label>
+                                <input type="text" class="form-control" id="cpf" name="cpf" value="<?= htmlspecialchars($paciente['cpf']) ?>" required style="border-radius: 8px; padding: 10px; border: 1px solid #e0e0e0;">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="data_nascimento" class="form-label fw-medium">Data de Nascimento</label>
+                                <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($paciente['data_nascimento']) ?>" required style="border-radius: 8px; padding: 10px; border: 1px solid #e0e0e0;">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label fw-medium">E-mail</label>
+                                <input type="email" class="form-control" id="email" name="email" value="<?= htmlspecialchars($paciente['email']) ?>" style="border-radius: 8px; padding: 10px; border: 1px solid #e0e0e0;">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="telefone" class="form-label fw-medium">Telefone</label>
+                                <input type="text" class="form-control" id="telefone" name="telefone" value="<?= htmlspecialchars($paciente['telefone']) ?>" style="border-radius: 8px; padding: 10px; border: 1px solid #e0e0e0;">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="endereco" class="form-label fw-medium">Endereço</label>
+                            <textarea class="form-control" id="endereco" name="endereco" rows="3" style="border-radius: 8px; padding: 10px; border: 1px solid #e0e0e0;"><?= htmlspecialchars($paciente['endereco']) ?></textarea>
+                        </div>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between" style="border-top: none; padding: 20px 25px 25px;">
+                        <a href="<?= BASE_URL ?>/pacientes/listar.php" class="btn btn-secondary" style="border-radius: 8px; padding: 8px 20px;">Cancelar</a>
+                        <button type="submit" class="btn text-white" style="border-radius: 8px; padding: 8px 20px; background: linear-gradient(135deg, #2a9d8f, #21867a); border: none;">
+                            <i class="fas fa-save me-2"></i> Atualizar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <form method="POST">
     <div class="mb-3">
         <label for="nome" class="form-label">Nome Completo</label>
         <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $paciente['nome']; ?>" required>
@@ -136,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <button type="submit" class="btn btn-primary">Atualizar</button>
     <a href="<?php echo BASE_URL; ?>/pacientes/listar.php" class="btn btn-secondary">Cancelar</a>
-</form>
+</form> -->
 
 
-<?php require_once '../includes/footer.php'; ?>
+

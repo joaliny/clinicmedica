@@ -204,14 +204,11 @@ try {
                 O texto informa que ainda não há registros no sistema. -->
             <h4 class="mb-3">Nenhum paciente cadastrado</h4>
             <p class="text-muted mb-4">Você ainda não possui pacientes cadastrados em seu sistema.</p>
-            <a href="<?= BASE_URL ?>/pacientes/cadastrar.php" class="btn btn-cadastrar text-white">
-                <!-- O link leva o usuário para a página de cadastro. -->
-                <i class="fas fa-plus-circle me-2"></i> Cadastrar Primeiro Paciente
-            </a>
+           
         </div>
         <?php else: ?>
         <div class="table-responsive">
-            <table class="table table-hover mb-0">
+            <table class="table table-bordered mb-0">
                 <thead>
                     <tr class="table-title">
                         <th colspan="5" class="text-center">
@@ -224,6 +221,7 @@ try {
                         <th class="text-black">Nome</th>
                         <th class="text-black">CPF</th>
                         <th class="text-black">Telefone</th>
+                        <th class="text-black">Endereço</th> <!-- Nova coluna -->
                         <th class="text-black text-end">Ações</th>
                     </tr>
                 </thead>
@@ -249,6 +247,7 @@ try {
                         </td>
                         <td><?= htmlspecialchars($paciente['cpf']) ?></td>
                         <td><?= htmlspecialchars($paciente['telefone']) ?></td>
+                        <td><?= htmlspecialchars($paciente['endereco'] ?? 'N/A') ?></td> <!-- Novo campo -->
                         <!-- O código exibe o CPF e o telefone do paciente, garantindo que os dados sejam mostrados de 
                          forma segura com htmlspecialchars() (evita ataques XSS). -->
                         <td class="text-end">

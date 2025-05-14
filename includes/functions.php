@@ -47,6 +47,10 @@ function get_pacientes($pdo) {
         return [];
     }
 }
+   //   Cria uma função chamada get_pacientes().
+  //    Recebe um argumento $pdo, que é um objeto da classe PDO (responsável pela conexão com o banco de dados).
+ //     Executa uma consulta SQL para buscar todos os pacientes (SELECT * FROM pacientes).
+//      Ordena os resultados pelo nome (ORDER BY nome).
 
 /**
  * Cadastra novo paciente

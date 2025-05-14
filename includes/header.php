@@ -85,9 +85,9 @@ require_once __DIR__ . '/config.php';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <!-- <a class="nav-link" href="#">
                             <i class="fas fa-calendar-alt me-1"></i> Agendamentos
-                        </a>
+                        </a> -->
                     </li>
                 </ul>
             </div>

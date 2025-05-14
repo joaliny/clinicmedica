@@ -4,10 +4,12 @@ require_once __DIR__ . '/includes/header.php';
 <link rel="stylesheet" href="../css/style.css">
 
 <style>
+
     .hero-section {
         background: 
-            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-            url('<?php echo BASE_URL; ?>/assets/img/3.jpg') no-repeat center center/cover;
+            linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            url('<?php echo BASE_URL; ?>/assets/img/4.jpg') no-repeat center center/cover;
+            /* background-size: auto 100%; */
         height: 90vh;
         display: flex;
         align-items: center;
@@ -56,16 +58,16 @@ require_once __DIR__ . '/includes/header.php';
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
     
-    .features-section {
+    /* /* .features-section {
         padding: 80px 0;
         background-color: #f8f9fa;
-    }
+    } */
     
     .feature-icon {
-        font-size: 3rem;
+        font-size: 1rem;
         color: #2a9d8f;
-        margin-bottom: 20px;
-    }
+        margin-bottom: 10px;
+    } */
     
     @media (max-width: 768px) {
         .hero-title {
@@ -76,6 +78,42 @@ require_once __DIR__ . '/includes/header.php';
             font-size: 1.2rem;
         }
     }
+
+
+
+
+
+    
+    .features-section {
+        background: #f8f9fa;
+    }
+
+    .feature-card {
+        background-color: #fff;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* .feature-icon i {
+        background: linear-gradient(135deg, #2a9d8f, #21867a);
+        color: #fff;
+        padding: 15px;
+        border-radius: 50%;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        line-height: 30px;
+    } */
+
+    .text-teal {
+        color: #2a9d8f;
+    }
+
 </style>
 
 <!-- Seção Hero com imagem de fundo -->
@@ -97,7 +135,7 @@ require_once __DIR__ . '/includes/header.php';
 </section>
 
 <!-- Seção de Recursos -->
-<section class="features-section">
+<!-- <section class="features-section">
     <div class="container">
         <div class="row text-center">
             <div class="col-md-4 mb-5">
@@ -123,7 +161,47 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
     </div>
+</section> -->
+
+<!-- Seção de Recursos com Estilo Moderno -->
+<section class="features-section py-5" style="background: #f8f9fa;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-teal">Nossos Diferenciais</h2>
+            <p class="text-muted">Comprometidos com excelência no atendimento e qualidade em cada detalhe.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card feature-card h-100 text-center p-4 border-0 shadow-sm">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="fas fa-heartbeat fa-2x text-danger"></i>
+                    </div>
+                    <h4 class="fw-semibold">Atendimento Personalizado</h4>
+                    <p class="text-muted">Cuidamos de cada paciente com atenção individualizada e tratamentos específicos.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 text-center p-4 border-0 shadow-sm">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="fas fa-user-md fa-2x text-primary"></i>
+                    </div>
+                    <h4 class="fw-semibold">Corpo Clínico Qualificado</h4>
+                    <p class="text-muted">Profissionais especializados e com vasta experiência em suas áreas de atuação.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 text-center p-4 border-0 shadow-sm">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="fas fa-hospital fa-2x text-success"></i>
+                    </div>
+                    <h4 class="fw-semibold">Infraestrutura Completa</h4>
+                    <p class="text-muted">Instalações modernas e equipamentos de última geração para melhor atendimento.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
 
 <?php
 require_once __DIR__ . '/includes/footer.php';
